@@ -1,9 +1,7 @@
 import {Division} from "@/app/interface";
-import {take} from "@/app/constants";
+import {apiUrl, take} from "@/app/constants";
 import DivisionItem from "@/app/division-item";
 import Pagination from "@/app/pagination";
-
-const url = "https://commonsvotes-api.parliament.uk/data/divisions.json";
 
 const getQuery = (page: number, take: number, query: string | undefined) => {
     const params = new URLSearchParams({
@@ -39,8 +37,8 @@ export default async function Search({params, searchParams}: {
 }) {
     const page = +params.page;
     const query = searchParams.query;
-    const getDivisions = getData<Division[]>(`${url}/search?${getQuery(page, take, query)}`);
-    const getTotal = getData<number>(`${url}/searchTotalResults?${getTotalQuery(query)}`);
+    const getDivisions = getData<Division[]>(`${apiUrl}/search?${getQuery(page, take, query)}`);
+    const getTotal = getData<number>(`${apiUrl}/searchTotalResults?${getTotalQuery(query)}`);
 
     const [divisions, total] = await Promise.all([getDivisions, getTotal]);
 
