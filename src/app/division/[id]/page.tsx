@@ -1,5 +1,6 @@
 import {Division} from "@/app/interface";
 import Votes from "@/app/division/[id]/votes";
+import {Suspense} from "react";
 
 const url = (id: string) => `https://commonsvotes-api.parliament.uk/data/division/${id}.json`;
 

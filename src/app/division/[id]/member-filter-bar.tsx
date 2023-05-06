@@ -7,7 +7,7 @@ const MemberFilter = z.object({
 });
 export type MemberFilter = z.infer<typeof MemberFilter>;
 
-export default function MemberFilterBar({onSubmit}: {onSubmit: (values: MemberFilter) => void}) {
+export default function MemberFilterBar({onSubmit}: { onSubmit: (values: MemberFilter) => void }) {
 
     const {
         register,
@@ -26,7 +26,8 @@ export default function MemberFilterBar({onSubmit}: {onSubmit: (values: MemberFi
                     <button
                         type="submit"
                         className='px-3 pt-2 pb-1 border border-black dark:border-white border-l-0 rounded-r inline-block'
-                    >Filter</button>
+                    >Filter
+                    </button>
                 </div>
                 {errors.filter?.message && <p>{errors.filter.message}</p>}
             </div>
