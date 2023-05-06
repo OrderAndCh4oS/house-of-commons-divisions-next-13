@@ -6,10 +6,7 @@ import DivisionList from "@/app/division-list";
 const getQuery = (page: number, take: number) => `queryParameters.skip=${(page - 1) * take}&queryParameters.take=${take}`
 
 async function getData<T>(url: string, tags: string[]): Promise<T> {
-    const res = await fetch(
-        url,
-        {next: {revalidate: 3600, tags}}
-    );
+    const res = await fetch(url, {next: {revalidate: 3600, tags}});
     if (!res.ok) throw new Error('Failed to fetch data');
 
     return res.json();
