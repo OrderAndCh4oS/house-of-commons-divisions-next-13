@@ -2,6 +2,7 @@ import './globals.css'
 import {Vollkorn} from 'next/font/google'
 import {ReactNode} from "react";
 import Link from "next/link";
+import Footer from "@/app/footer";
 
 const font = Vollkorn({subsets: ['latin', 'latin-ext']})
 
@@ -23,6 +24,7 @@ export default function RootLayout({
                 </Link>
             </div>
             {children}
+            <Footer/>
         </div>
 
         </body>

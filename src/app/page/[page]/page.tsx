@@ -5,7 +5,7 @@ import {take} from "@/app/constants";
 const url = "https://commonsvotes-api.parliament.uk/data/divisions.json/search";
 const getQuery = (page: number, take: number) => `queryParameters.skip=${(page - 1) * take}&queryParameters.take=${take}`
 
-export const revalidate = 10800;
+export const revalidate = 3600;
 
 export async function generateStaticParams() {
     const total = await getData<number>('https://commonsvotes-api.parliament.uk/data/divisions.json/searchTotalResults');
