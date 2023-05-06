@@ -3,25 +3,38 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --black: #141418;
+    --white: #faf7f6;
+    --foreground-rgb: 20, 20, 24;
+    --background-start-rgb: 250, 247, 246;
+    --background-end-rgb: 224, 215, 213;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --black: #e0d7d5;
+        --white: #232121;
+        --foreground-rgb: 224, 215, 213;
+        --background-start-rgb: 35, 33, 33;
+        --background-end-rgb: 20, 20, 24;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+            to bottom,
+            transparent,
+            rgb(var(--background-end-rgb))
+    ) rgb(var(--background-start-rgb));
+}
+
+::selection{
+    color: var(--white);
+    background: #FF4100;
+}
+
+::-moz-selection {
+    color: var(--white);
+    background: #FF4100;  /* firefox code */
 }
