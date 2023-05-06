@@ -1,4 +1,5 @@
 import {Division, Member} from "@/app/interface";
+import Votes from "@/app/division/[id]/votes";
 
 const url = (id: string) => `https://commonsvotes-api.parliament.uk/data/division/${id}.json`;
 
@@ -20,53 +21,22 @@ function getPercentage(a: number, b: number): string {
     return (a / (a + b) * 100).toPrecision(3);
 }
 
-function Member({member}: { member: Member }) {
-    return (
-        <div className='pb-4 mb-4 border-b border-black dark:border-white'>
-            <h4 className='font-bold'>{member.Name}</h4>
-            <div className='flex'>
-                <div style={{backgroundColor: `#${member.PartyColour}`}} className='w-4 h-4 mt-1 mr-2'/>
-                <div>
-                    <p>
-                        <span className='font-bold'>{member.Party}</span>
-                        {member.SubParty ? `(${member.SubParty})` : null}
-                    </p>
-                    <p>{member.MemberFrom}</p>
-                </div>
-            </div>
-
-        </div>
-    );
-}
-
 export default async function Divisions({params}: { params: { id: string } }) {
-    const data = await getData(params.id);
+    const division = await getData(params.id);
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between">
-            <article key={data.DivisionId} className="pb-4 mb-4 border-b border-black dark:border-white w-full">
-                <h1 className="font-bold text-xl">{data.Title}</h1>
-                <p>{new Date(data.Date).toDateString()}</p>
-                <p className="mb-6"><span>Aye: {data.AyeCount}</span> <span>No: {data.NoCount}</span></p>
+            <article key={division.DivisionId} className="pb-4 mb-4 border-b border-black dark:border-white w-full">
+                <h1 className="font-bold text-xl">{division.Title}</h1>
+                <p>{new Date(division.Date).toDateString()}</p>
+                <p className="mb-6"><span>Aye: {division.AyeCount}</span> <span>No: {division.NoCount}</span></p>
                 <div className='flex mb-6'>
                     <div className={`bg-green-400 h-6`}
-                         style={{width: `${getPercentage(data.AyeCount, data.NoCount)}%`}}></div>
+                         style={{width: `${getPercentage(division.AyeCount, division.NoCount)}%`}}></div>
                     <div className={`bg-red-400 h-6`}
-                         style={{width: `${getPercentage(data.NoCount, data.AyeCount)}%`}}></div>
+                         style={{width: `${getPercentage(division.NoCount, division.AyeCount)}%`}}></div>
                 </div>
-                <section>
-                    <h2 className="font-bold">Votes</h2>
-                    <div className='flex gap-4'>
-                        <div className='w-1/2'>
-                            <h3 className='mb-4 bold'>Aye Votes</h3>
-                            {data.Ayes.map(member => <Member key={member.MemberId} member={member}/>)}
-                        </div>
-                        <div className='w-1/2'>
-                            <h3 className='mb-4 bold'>No Votes</h3>
-                            {data.Noes.map(member => <Member key={member.MemberId} member={member}/>)}
-                        </div>
-                    </div>
-                </section>
+                <Votes division={division}/>
             </article>
         </main>
     )

@@ -1,7 +1,7 @@
 import {Division} from "@/app/interface";
 import {apiUrl, take} from "@/app/constants";
-import DivisionItem from "@/app/division-item";
 import Pagination from "@/app/pagination";
+import DivisionList from "@/app/division-list";
 
 const getQuery = (page: number, take: number, query: string | undefined) => {
     const params = new URLSearchParams({
@@ -27,10 +27,6 @@ async function getData<T>(url: string): Promise<T> {
     return res.json();
 }
 
-function getPercentage(a: number, b: number): string {
-    return (a / (a + b) * 100).toPrecision(3);
-}
-
 export default async function Search({params, searchParams}: {
     params: { page: string },
     searchParams: { query: string | undefined }
@@ -48,7 +44,7 @@ export default async function Search({params, searchParams}: {
                 <p>Query: {query}</p>
                 <p className='ml-auto'>Total Results: {total}</p>
             </div>
-            {divisions.map(division => <DivisionItem key={division.DivisionId} division={division}/>)}
+            <DivisionList divisions={divisions}/>
             <p className="center mb-4">Page: {params.page}</p>
             <Pagination page={page} total={total} path={'/search'} query={query}/>
         </main>

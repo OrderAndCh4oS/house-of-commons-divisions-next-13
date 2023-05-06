@@ -29,12 +29,12 @@ body {
     ) rgb(var(--background-start-rgb));
 }
 
-::selection{
+::selection {
     color: var(--white);
     background: #FF4100;
 }
 
 ::-moz-selection {
     color: var(--white);
-    background: #FF4100;  /* firefox code */
+    background: #FF4100; /* firefox code */
 }

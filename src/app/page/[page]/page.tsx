@@ -1,7 +1,7 @@
 import {Division} from "@/app/interface";
 import {apiUrl, take} from "@/app/constants";
-import DivisionItem from "@/app/division-item";
 import Pagination from "@/app/pagination";
+import DivisionList from "@/app/division-list";
 
 const getQuery = (page: number, take: number) => `queryParameters.skip=${(page - 1) * take}&queryParameters.take=${take}`
 
@@ -33,7 +33,7 @@ export default async function Home({params}: { params: { page: string } }) {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between">
-            {divisions.map(division => <DivisionItem key={division.DivisionId} division={division}/>)}
+            <DivisionList divisions={divisions}/>
             <p className="center mb-4">Page: {params.page}</p>
             <Pagination page={page} total={total} path={'/page'}/>
         </main>

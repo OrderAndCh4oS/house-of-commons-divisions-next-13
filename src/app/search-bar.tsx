@@ -30,8 +30,11 @@ export default function SearchBar() {
         <form onSubmit={handleSubmit(onSubmit)}>
             <div>
                 <div className='flex'>
-                    <input {...register("query")} className='text-black px-3 pt-2 pb-1 border border-black dark:border-white rounded-l' />
-                    <button type="submit" className='px-3 pt-2 pb-1 border border-black dark:border-white border-l-0 rounded-r inline-block'>Search</button>
+                    <input {...register("query")}
+                           className='text-black px-3 pt-2 pb-1 border border-black dark:border-white rounded-l'/>
+                    <button type="submit"
+                            className='px-3 pt-2 pb-1 border border-black dark:border-white border-l-0 rounded-r inline-block'>Search
+                    </button>
                 </div>
                 {errors.query?.message && <p>{errors.query.message}</p>}
             </div>
