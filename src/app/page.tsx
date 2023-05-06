@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {Division} from "@/app/interface";
 import {take} from "@/app/constants";
+import SearchBar from "@/app/search-bar";
 
 const url = "https://commonsvotes-api.parliament.uk/data/divisions.json/search";
 const query = `queryParameters.take=${take}`
@@ -16,7 +17,7 @@ function getPercentage(a: number, b: number): string {
     return (a / (a + b) * 100).toPrecision(3);
 }
 
-export default async function Home() {
+export default async function Home({}: {}) {
     const divisions = await getData();
 
     return (

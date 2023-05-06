@@ -4,6 +4,7 @@ import {ReactNode} from "react";
 import Link from "next/link";
 import Footer from "@/app/footer";
 import Head from "next/head";
+import SearchBar from "@/app/search-bar";
 
 const font = Vollkorn({subsets: ['latin', 'latin-ext']})
 
@@ -13,8 +14,8 @@ export const metadata = {
 }
 
 export default function RootLayout({
-                                       children,
-                                   }: { children: ReactNode }) {
+   children,
+}: { children: ReactNode }) {
     return (
         <html lang="en">
         <Head>
@@ -28,15 +29,17 @@ export default function RootLayout({
         </Head>
         <body className={font.className}>
         <div className="px-16 pt-8 pb-32">
-            <div className='mb-16'>
+            <div className='flex mb-16'>
                 <Link href='/'>
                     <h1>House of Commons Divisions</h1>
                 </Link>
+                <div className='ml-auto'>
+                    <SearchBar/>
+                </div>
             </div>
             {children}
             <Footer/>
         </div>
-
         </body>
         </html>
     )
