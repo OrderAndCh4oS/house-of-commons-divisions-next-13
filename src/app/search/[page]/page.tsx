@@ -50,7 +50,7 @@ export default async function Search({params, searchParams}: {
             </div>
             {divisions.map(division => <DivisionItem key={division.DivisionId} division={division}/>)}
             <p className="center mb-4">Page: {params.page}</p>
-            <Pagination page={page} total={total} path={'/search'}/>
+            <Pagination page={page} total={total} path={'/search'} query={query}/>
         </main>
     )
 }
