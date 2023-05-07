@@ -1,6 +1,6 @@
 import Link from "next/link";
 import {take} from "@/app/constants";
-import Button from "@/app/button";
+import Button from "@/components/button";
 
 export default function Pagination(props: { page: number, total: number, path: string, query?: string }) {
     return (

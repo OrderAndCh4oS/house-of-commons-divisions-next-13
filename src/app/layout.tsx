@@ -2,9 +2,9 @@ import './globals.css'
 import {Vollkorn} from 'next/font/google'
 import {ReactNode} from "react";
 import Link from "next/link";
-import Footer from "@/app/footer";
+import Footer from "@/components/footer";
 import Head from "next/head";
-import SearchBar from "@/app/search-bar";
+import SearchBar from "@/components/search-bar";
 
 const font = Vollkorn({subsets: ['latin', 'latin-ext']})
 

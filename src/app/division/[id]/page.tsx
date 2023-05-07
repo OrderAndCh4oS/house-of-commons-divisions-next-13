@@ -1,6 +1,7 @@
 import {Division} from "@/app/interface";
 import Votes from "@/app/division/[id]/votes";
 import {Suspense} from "react";
+import PercentageBar from "@/components/percentage-bar";
 
 const url = (id: string) => `https://commonsvotes-api.parliament.uk/data/division/${id}.json`;
 
@@ -24,16 +25,7 @@ export default async function Divisions({params}: { params: { id: string } }) {
                 <h1 className="font-bold text-xl">{division.Title}</h1>
                 <p>{new Date(division.Date).toDateString()}</p>
                 <p className="mb-6"><span>Aye: {division.AyeCount}</span> <span>No: {division.NoCount}</span></p>
-                <div className='flex mb-6'>
-                    <div
-                        className={`bg-green-400 h-6`}
-                        style={{width: `${getPercentage(division.AyeCount, division.NoCount)}%`}}
-                    />
-                    <div
-                        className={`bg-red-400 h-6`}
-                        style={{width: `${getPercentage(division.NoCount, division.AyeCount)}%`}}
-                    />
-                </div>
+                <PercentageBar a={division.AyeCount} b={division.NoCount}/>
                 <Votes division={division}/>
             </article>
         </main>

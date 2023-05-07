@@ -1,7 +1,7 @@
 import {Division} from "@/app/interface";
 import {apiUrl, take} from "@/app/constants";
-import Pagination from "@/app/pagination";
-import DivisionList from "@/app/division-list";
+import Pagination from "@/components/pagination";
+import DivisionList from "@/components/division-list";
 
 const getQuery = (page: number, take: number, query: string | undefined) => {
     const params = new URLSearchParams({
