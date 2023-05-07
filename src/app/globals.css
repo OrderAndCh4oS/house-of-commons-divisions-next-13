@@ -6,10 +6,9 @@
     --black: #141418;
     --white: #faf7f6;
     --foreground-rgb: 20, 20, 24;
-    --background-start-rgb: 250, 247, 246;
+    --background-start-rgb: 227, 219, 217;
     --background-end-rgb: 224, 215, 213;
 }
-
 @media (prefers-color-scheme: dark) {
     :root {
         --black: #e0d7d5;

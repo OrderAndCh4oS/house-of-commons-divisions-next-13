@@ -20,7 +20,7 @@ export default async function Divisions({params}: { params: { id: string } }) {
 
     return (
         <main className="flex min-h-screen flex-col items-center justify-between">
-            <article key={division.DivisionId} className="pb-4 mb-4 border-b border-black dark:border-white w-full">
+            <article key={division.DivisionId} className="pb-4 mb-4 border-b border-woodsmoke dark:border-swiss-coffee w-full">
                 <h1 className="font-bold text-xl">{division.Title}</h1>
                 <p>{new Date(division.Date).toDateString()}</p>
                 <p className="mb-6"><span>Aye: {division.AyeCount}</span> <span>No: {division.NoCount}</span></p>

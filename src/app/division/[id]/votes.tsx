@@ -16,7 +16,7 @@ const memberMap = (member: Member) => <Member key={member.MemberId} member={memb
 
 function Member({member}: { member: Member }) {
     return (
-        <div className='pb-4 mb-4 border-b border-black dark:border-white'>
+        <div className='pb-4 mb-4 border-b border-woodsmoke dark:border-swiss-coffee'>
             <h4 className='font-bold'>{member.Name}</h4>
             <div className='flex'>
                 <div style={{backgroundColor: `#${member.PartyColour}`}} className='w-4 h-4 mt-1 mr-2'/>

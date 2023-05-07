@@ -31,9 +31,9 @@ export default function SearchBar() {
             <div>
                 <div className='flex'>
                     <input {...register("query")}
-                           className='text-black px-3 pt-2 pb-1 border border-black dark:border-white rounded-l'/>
+                           className='text-woodsmoke px-3 pt-2 pb-1 border border-woodsmoke dark:border-swiss-coffee rounded-l'/>
                     <button type="submit"
-                            className='px-3 pt-2 pb-1 border border-black dark:border-white border-l-0 rounded-r inline-block'>Search
+                            className='px-3 pt-2 pb-1 border border-woodsmoke dark:border-swiss-coffee border-l-0 rounded-r inline-block'>Search
                     </button>
                 </div>
                 {errors.query?.message && <p>{errors.query.message}</p>}
